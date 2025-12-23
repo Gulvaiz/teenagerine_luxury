@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Request Confirmation - Tangerine Luxury</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .email-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .brand-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+        }
+        .header h1 {
+            margin: 15px 0 5px 0;
+            font-size: 26px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .success-icon {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .confirmation-message {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .confirmation-message h2 {
+            color: #ff6b35;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .request-summary {
+            background: linear-gradient(135deg, #fff8f5, #fff2eb);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #ff6b35;
+            box-shadow: 0 2px 8px rgba(255, 107, 53, 0.1);
+        }
+        .request-summary h3 {
+            color: #ff6b35;
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .product-details {
+            margin: 15px 0;
+        }
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .budget-display {
+            font-size: 20px;
+            font-weight: 600;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        .description-box {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        .timeline {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #28a745;
+        }
+        .timeline h3 {
+            color: #28a745;
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .timeline ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .timeline li {
+            margin: 12px 0;
+            font-size: 15px;
+            color: #555;
+        }
+        .timeline li strong {
+            color: #28a745;
+        }
+        .contact-info {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+            margin: 25px 0;
+        }
+        .contact-info h4 {
+            color: #ff6b35;
+            margin-top: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+        .cta-section {
+            background-color: #ff6b35;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .cta-section h4 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+        .cta-section p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        .reference-number {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            font-family: monospace;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        .footer p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 15px;
+            background-color: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .brand-footer {
+            margin-top: 20px;
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+        .signature {
+            margin: 25px 0;
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #ff6b35;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">
+                <h1>TANGERINE LUXURY</h1>
+            </div>
+            <div class="brand-name">TANGERINE LUXURY</div>
+            <div class="success-icon">📦</div>
+            <h1>Product Request Received!</h1>
+            <p>We've successfully received your custom product request</p>
+        </div>
+
+        <div class="content">
+            <div class="confirmation-message">
+                <h2>Thank you for choosing Tangerine Luxury!</h2>
+                <p>Your custom product request has been submitted and is now being reviewed by our specialist team.</p>
+            </div>
+
+            <div class="request-summary">
+                <h3>📋 Your Request Summary</h3>
+                <div class="product-details">
+                    <div class="product-name">{{productName}}</div>
+                    <div class="budget-display">Budget: ₹{{budget}}</div>
+                    <div class="description-box">{{description}}</div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <h3>🕒 What Happens Next?</h3>
+                <ul>
+                    <li><strong>Immediate:</strong> Your request has been logged in our system</li>
+                    <li><strong>24-48 Hours:</strong> Our product specialists will review your requirements</li>
+                    <li><strong>2-3 Days:</strong> We'll contact you with preliminary options and feasibility</li>
+                    <li><strong>Upon Approval:</strong> Detailed quotation and timeline will be provided</li>
+                    <li><strong>Production:</strong> Custom manufacturing begins after agreement</li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <h4>🎯 Need to Discuss Your Request?</h4>
+                <p>Our product specialists are ready to discuss your requirements in detail.</p>
+                <p>Contact us directly for immediate assistance!</p>
+            </div>
+
+            <div class="contact-info">
+                <h4>📞 Get In Touch</h4>
+                <p><strong>Email:</strong> products@tangerineluxury.com</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>WhatsApp:</strong> +91 98765 43210</p>
+                <p><strong>Business Hours:</strong> Monday - Saturday, 10:00 AM - 8:00 PM IST</p>
+                <p><strong>Website:</strong> www.tangerineluxury.com</p>
+            </div>
+
+            <div class="signature">
+                <p>"At Tangerine Luxury, we specialize in bringing your vision to life. Our expert craftsmen and designers work tirelessly to create products that exceed your expectations and reflect your unique style."</p>
+            </div>
+            
+            <p>We appreciate your trust in Tangerine Luxury for your custom product needs. We're excited to work with you and create something truly special!</p>
+            
+            <p><strong>Warm regards,</strong><br>
+            <strong>The Tangerine Luxury Product Team</strong><br>
+            <em>Custom Product Specialists</em></p>
+        </div>
+
+        <div class="footer">
+            <div class="social-links">
+                <a href="#" style="text-decoration: none;">Visit Website</a>
+                <a href="#" style="text-decoration: none;">Our Gallery</a>
+                <a href="#" style="text-decoration: none;">Custom Products</a>
+            </div>
+            
+            <p><strong>Important:</strong> This is an automated confirmation email. Please save this for your records.</p>
+            <p>For questions about your request, please contact us using the information provided above.</p>
+            
+            <div class="brand-footer">
+                TANGERINE LUXURY
+                <br>
+                <span style="font-size: 14px; font-weight: normal; opacity: 0.8;">Custom Products • Premium Quality • Exceptional Craftsmanship</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product Request - Tangerine Luxury</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .email-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .brand-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 15px 0 5px 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .priority-badge {
+            display: inline-block;
+            background-color: #dc3545;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .request-summary {
+            background: linear-gradient(135deg, #fff8f5, #fff2eb);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b35;
+        }
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+        .budget {
+            font-size: 20px;
+            font-weight: 600;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        .field {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+        }
+        .field-label {
+            font-weight: 600;
+            color: #ff6b35;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .field-value {
+            font-size: 16px;
+            color: #333;
+        }
+        .description-content {
+            background-color: #fff;
+            border: 2px solid #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .customer-info {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        .customer-info h4 {
+            color: #28a745;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .contact-detail {
+            margin: 8px 0;
+            padding: 8px 12px;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 5px;
+        }
+        .user-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .guest-user {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        .registered-user {
+            background-color: #28a745;
+            color: white;
+        }
+        .action-section {
+            background-color: #ff6b35;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .action-section h4 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        .reference-image {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        .footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .brand-footer {
+            margin-top: 20px;
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">
+                <h1>TANGERINE LUXURY</h1>
+            </div>
+            <div class="brand-name">TANGERINE LUXURY</div>
+            <h1>New Product Request</h1>
+            <p>A customer has submitted a new product request</p>
+        </div>
+
+        <div class="content">
+            <div class="priority-badge">High Priority Request</div>
+            
+            <div class="request-summary">
+                <div class="product-name">{{productName}}</div>
+                <div class="budget">Budget: ₹{{budget}}</div>
+                <span class="user-type {{isGuest}}">{{isGuest}}</span>
+            </div>
+
+            <div class="field">
+                <div class="field-label">Product Description</div>
+                <div class="field-value">
+                    <div class="description-content">{{description}}</div>
+                </div>
+            </div>
+
+            <div class="customer-info">
+                <h4>👤 Customer Information</h4>
+                <div class="contact-detail">
+                    <strong>Email:</strong> {{customerEmail}}
+                </div>
+                <div class="contact-detail">
+                    <strong>Phone:</strong> {{customerPhone}}
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="field-label">Reference Image</div>
+                <div class="field-value">
+                    <div class="reference-image">
+                        {{referenceImage}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="field-label">Request Date & Time</div>
+                <div class="field-value">{{date}}</div>
+            </div>
+
+            <div class="action-section">
+                <h4>⚡ Action Required</h4>
+                <p>Please review this product request and respond to the customer within 24-48 hours.</p>
+                <p>Login to admin panel to manage this request and update its status.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Next Steps:</strong></p>
+            <p>1. Review the product request details above</p>
+            <p>2. Contact customer at {{customerEmail}} or {{customerPhone}}</p>
+            <p>3. Update request status in admin panel</p>
+            <p>4. Provide detailed quotation if approved</p>
+            
+            <p>This is an automated notification from your Tangerine Luxury website.</p>
+            
+            <div class="brand-footer">
+                TANGERINE LUXURY - Premium Product Requests
+            </div>
+        </div>
+    </div>
+</body>
+</html>

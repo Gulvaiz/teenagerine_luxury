@@ -1,0 +1,15 @@
+node_modules
+package-lock.json
+.vercel
+.env
+.env
+.env
+public**
+uploads/invoices/*.pdf
+.env.example
+.claude
+.qodo
+
+/src/generated/prisma
+nul
+.claude/settings.local.json
