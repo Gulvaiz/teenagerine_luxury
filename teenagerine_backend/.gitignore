@@ -10,6 +10,5 @@ uploads/invoices/*.pdf
 .claude
 .qodo
 
-/src/generated/prisma
-nul
+
 .claude/settings.local.json

@@ -1,0 +1,523 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model brand {
+  brand_id        Int     @id @default(autoincrement())
+  brand_code      String? @db.VarChar(255)
+  brand_name      String? @db.VarChar(255)
+  brand_status    String? @db.VarChar(100)
+  brand_post_date String? @db.VarChar(100)
+  brand_post_time String? @db.VarChar(100)
+  brand_post_by   String? @db.VarChar(100)
+  brand_image     String? @db.VarChar(255)
+}
+
+model category {
+  category_id        Int     @id @default(autoincrement())
+  category_code      String? @db.VarChar(255)
+  category_menu      String? @db.VarChar(100)
+  category_name      String? @db.VarChar(255)
+  category_status    String? @db.VarChar(100)
+  category_post_date String? @db.VarChar(100)
+  category_post_time String? @db.VarChar(100)
+  category_post_by   String? @db.VarChar(100)
+}
+
+model checkout {
+  chout_id           Int       @id @default(autoincrement())
+  chout_code         Int?
+  chout_fname        String?   @db.VarChar(100)
+  chout_lname        String?   @db.VarChar(100)
+  chout_company_name String?   @db.VarChar(100)
+  chout_country      String?   @db.VarChar(100)
+  chout_street_add   String    @db.VarChar(100)
+  chout_street_add1  String    @db.VarChar(100)
+  chout_city         String    @db.VarChar(100)
+  chout_zip_code     String    @db.VarChar(100)
+  chout_phone_no     String    @db.VarChar(100)
+  chout_email        String    @db.VarChar(100)
+  chout_account      String    @db.VarChar(100)
+  chout_order_notes  String    @db.VarChar(100)
+  chout_post_by      String    @db.VarChar(100)
+  chout_post_date    DateTime? @db.Date
+  chout_post_time    String?   @db.VarChar(100)
+  chout_other        String?   @db.VarChar(100)
+}
+
+model color {
+  color_id        Int     @id @default(autoincrement())
+  color_code      String? @db.VarChar(255)
+  color_name      String? @db.VarChar(255)
+  color_cd        String? @db.VarChar(100)
+  color_status    String? @db.VarChar(100)
+  color_post_date String? @db.VarChar(100)
+  color_post_time String? @db.VarChar(100)
+  color_post_by   String? @db.VarChar(100)
+}
+
+model contact_inquiry {
+  contact_inq_id        Int       @id @default(autoincrement())
+  contact_inq_code      Int?
+  contact_inq_name      String?   @db.VarChar(100)
+  contact_inq_email     String?   @db.VarChar(100)
+  contact_inq_phone     String?   @db.VarChar(100)
+  contact_inq_subject   String?   @db.VarChar(100)
+  contact_inq_massage   String?   @db.VarChar(100)
+  contact_inq_post_date DateTime? @db.Date
+  contact_inq_post_time String?   @db.VarChar(100)
+  contact_inq_status    String?   @db.VarChar(100)
+  contact_inq_post_by   String?   @db.VarChar(100)
+}
+
+model coupon {
+  coupon_id        Int       @id @default(autoincrement())
+  coupon_code      String?   @db.VarChar(100)
+  coupon_amount    Int?
+  coupon_exp_date  DateTime? @db.Date
+  coupon_status    String?   @db.VarChar(100)
+  coupon_post_date DateTime? @db.Date
+  coupon_post_time String?   @db.VarChar(100)
+  coupon_post_by   String?   @db.VarChar(100)
+}
+
+model customer_registration {
+  cust_id        Int       @id @default(autoincrement())
+  cust_code      Int?
+  cust_name      String?   @db.VarChar(100)
+  cust_contact   String?   @db.VarChar(100)
+  cust_email     String?   @db.VarChar(100)
+  cust_password  String?   @db.VarChar(100)
+  cust_status    String?   @db.VarChar(100)
+  cust_post_date DateTime? @db.Date
+  cust_post_time String?   @db.VarChar(100)
+}
+
+model employee {
+  emp_id         Int     @id @default(autoincrement())
+  emp_code       String? @db.VarChar(100)
+  emp_code1      String? @db.VarChar(100)
+  emp_name       String? @db.VarChar(255)
+  emp_contact    String  @db.VarChar(100)
+  emp_email      String? @db.VarChar(255)
+  emp_status     String? @db.VarChar(10)
+  emp_postdate   String? @db.VarChar(100)
+  emp_posttime   String? @db.VarChar(100)
+  emp_postby     String? @db.VarChar(100)
+  emp_updatedate String? @db.VarChar(100)
+  emp_updatetime String? @db.VarChar(100)
+  emp_updateby   String? @db.VarChar(100)
+  username       String? @db.VarChar(255)
+  password       String? @db.VarChar(100)
+  position       String? @db.VarChar(100)
+}
+
+model gallery {
+  gallery_id        Int     @id @default(autoincrement())
+  gallery_code      String? @db.VarChar(255)
+  gallery_product   String? @db.VarChar(255)
+  gallery_title     String? @db.VarChar(255)
+  gallery_image     String? @db.VarChar(255)
+  gallery_status    String? @db.VarChar(100)
+  gallery_post_date String? @db.VarChar(100)
+  gallery_post_time String? @db.VarChar(100)
+  gallery_post_by   String? @db.VarChar(100)
+}
+
+model login {
+  id       Int    @id @default(autoincrement())
+  code     String @db.VarChar(255)
+  username String @db.VarChar(255)
+  password String @db.VarChar(100)
+  ename    String @db.VarChar(255)
+  position String @db.VarChar(100)
+  sys_dt   String @db.VarChar(100)
+}
+
+model menu {
+  menu_id        Int     @id @default(autoincrement())
+  menu_code      String? @db.VarChar(255)
+  menu_name      String? @db.VarChar(255)
+  menu_status    String? @db.VarChar(100)
+  menu_post_date String? @db.VarChar(100)
+  menu_post_time String? @db.VarChar(100)
+  menu_post_by   String? @db.VarChar(100)
+}
+
+model order_products {
+  orderp_id           Int       @id @default(autoincrement())
+  orderp_code         Int?
+  orderp_product_code String?   @db.VarChar(100)
+  orderp_qty          Int?
+  orderp_price        Int?
+  orderp_tamount      Int?
+  orderp_status       Int?
+  orderp_post_date    DateTime? @db.Date
+  orderp_post_time    String?   @db.VarChar(100)
+}
+
+model orders {
+  orders_id                    Int     @id @default(autoincrement())
+  orders_code                  Int?
+  orders_custor_name           String? @db.VarChar(100)
+  orders_last_name             String? @db.VarChar(100)
+  orders_compny_name           String? @db.VarChar(100)
+  orders_country               String? @db.VarChar(100)
+  orders_street_address        String? @db.VarChar(100)
+  orders_street_address1       String? @db.VarChar(100)
+  orders_city                  String? @db.VarChar(100)
+  orders_state                 String? @db.VarChar(100)
+  orders_email                 String? @db.VarChar(100)
+  orders_contact               String? @db.VarChar(100)
+  orders_creat_account         String? @db.VarChar(100)
+  orders_ship_diffrent_address String? @db.VarChar(100)
+  orders_remark                String? @db.VarChar(100)
+  orders_status                String? @db.VarChar(100)
+  orders_post_date             String? @db.VarChar(100)
+  orders_post_time             String? @db.VarChar(100)
+  orders_by                    String? @db.VarChar(100)
+  orders_type                  String? @db.VarChar(100)
+  orders_process_status        String? @db.VarChar(100)
+  orders_orderid               String? @db.VarChar(100)
+}
+
+model product {
+  product_id               Int                @id @default(autoincrement())
+  product_code             String?            @db.VarChar(255)
+  product_owner            String?            @db.VarChar(100)
+  product_title            String?            @db.VarChar(255)
+  product_qty              Int?
+  product_price            String?            @db.VarChar(255)
+  product_brand            String?            @db.VarChar(255)
+  product_vendor           String?            @db.VarChar(255)
+  product_vendor_contract  String?            @db.VarChar(100)
+  product_image            String?            @db.VarChar(255)
+  product_remarks          String             @db.Text
+  product_status           String?            @db.VarChar(100)
+  product_post_date        String?            @db.VarChar(100)
+  product_post_time        String?            @db.VarChar(100)
+  product_post_by          String?            @db.VarChar(100)
+  product_submit           String?            @db.VarChar(100)
+  product_submit_post_date String?            @db.VarChar(100)
+  product_submit_post_time String?            @db.VarChar(100)
+  product_submit_post_by   String?            @db.VarChar(100)
+  product_belonging        String?            @db.Text
+  product_sku              String?            @db.VarChar(255)
+  product_category         String?            @db.VarChar(255)
+  product_subcategory      String?            @db.VarChar(255)
+  estimate_price           Int?
+  product_prices           Int?
+  sale_price               Int?
+  product_color            String?            @db.VarChar(100)
+  product_size             String?            @db.VarChar(100)
+  product_brands           String?            @db.VarChar(100)
+  product_condition        String?            @db.VarChar(255)
+  product_sd               String?            @db.Text
+  product_ld               String?            @db.Text
+  product_live             String?            @db.VarChar(100)
+  product_live_date        String?            @db.VarChar(100)
+  product_live_time        String?            @db.VarChar(100)
+  product_live_by          String?            @db.VarChar(100)
+  product_published        String?            @db.VarChar(100)
+  product_published_date   String?            @db.VarChar(100)
+  product_published_time   String?            @db.VarChar(100)
+  product_published_by     String?            @db.VarChar(100)
+  ERPrice                  Float?             @default(0)
+  adminNotes               String?            @db.Text
+  approvedAt               DateTime?
+  approvedBy               String?            @db.VarChar(255)
+  brand                    String?            @default("") @db.VarChar(255)
+  condition                product_condition? @default(FAIR)
+  createdAt                DateTime?          @default(now())
+  description              String?            @db.Text
+  isApproved               Boolean?           @default(false)
+  mongoProductId           String?            @db.VarChar(255)
+  name                     String?            @default("") @db.VarChar(255)
+  price                    Float?             @default(0)
+  rejectedAt               DateTime?
+  rejectedBy               String?            @db.VarChar(255)
+  rejectionReason          String?            @db.Text
+  sellingPrice             Float?             @default(0)
+  status                   product_status?    @default(PENDING)
+  type                     String?            @default("") @db.VarChar(255)
+  updatedAt                DateTime?          @default(now())
+  vendorId                 Int?
+  productImage             productImage[]
+}
+
+model productImage {
+  id         Int     @id @default(autoincrement())
+  url        String  @db.VarChar(255)
+  product_id Int
+  product    product @relation(fields: [product_id], references: [product_id])
+
+  @@index([product_id], map: "productImage_product_id_fkey")
+}
+
+model product_color {
+  pclr_id        Int     @id @default(autoincrement())
+  pclr_code      String? @db.VarChar(100)
+  pclr_product   String? @db.VarChar(100)
+  pclr_name      String? @db.VarChar(100)
+  pclr_price     Int?
+  pclr_status    String? @db.VarChar(100)
+  pclr_post_date String? @db.VarChar(100)
+  pclr_post_time String? @db.VarChar(100)
+  pclr_post_by   String? @db.VarChar(100)
+}
+
+model product_size {
+  psz_id        Int     @id @default(autoincrement())
+  psz_code      String? @db.VarChar(100)
+  psz_product   String? @db.VarChar(100)
+  psz_name      String? @db.VarChar(100)
+  psz_price     Int?
+  psz_status    String? @db.VarChar(100)
+  psz_post_date String? @db.VarChar(100)
+  psz_post_time String? @db.VarChar(100)
+  psz_post_by   String? @db.VarChar(100)
+}
+
+model products {
+  product_id          Int     @id @default(autoincrement())
+  product_code        String? @db.VarChar(100)
+  product_name        String? @db.VarChar(255)
+  product_sku         String? @db.VarChar(255)
+  product_category    String? @db.VarChar(100)
+  product_subcategory String? @db.VarChar(100)
+  estimate_price      Int?
+  product_price       Int?
+  sale_price          Int?
+  product_color       String? @db.VarChar(100)
+  product_size        String? @db.VarChar(100)
+  product_brand       String? @db.VarChar(100)
+  product_condition   String? @db.VarChar(100)
+  product_image       String? @db.VarChar(255)
+  product_status      String? @db.VarChar(100)
+  product_post_date   String? @db.VarChar(100)
+  product_post_time   String? @db.VarChar(100)
+  product_post_by     String? @db.VarChar(100)
+  product_sd          String? @db.Text
+  product_ld          String? @db.Text
+}
+
+model size {
+  size_id        Int     @id @default(autoincrement())
+  size_code      String? @db.VarChar(255)
+  size_name      String? @db.VarChar(255)
+  size_status    String? @db.VarChar(100)
+  size_post_date String? @db.VarChar(100)
+  size_post_time String? @db.VarChar(100)
+  size_post_by   String? @db.VarChar(100)
+}
+
+model subcategory {
+  subcategory_id        Int     @id @default(autoincrement())
+  subcategory_code      String? @db.VarChar(100)
+  subcategory_category  String? @db.VarChar(255)
+  subcategory_name      String? @db.VarChar(255)
+  subcategory_status    String? @db.VarChar(100)
+  subcategory_post_date String? @db.VarChar(100)
+  subcategory_post_time String? @db.VarChar(100)
+  subcategory_post_by   String? @db.VarChar(100)
+}
+
+model tblproduct {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(255)
+  code  String @unique(map: "product_code") @db.VarChar(255)
+  image String @db.Text
+  price Float
+}
+
+model vendor {
+  vendor_id        Int       @id @default(autoincrement())
+  vendor_code      String    @db.VarChar(100)
+  vendor_name      String    @db.VarChar(255)
+  vendor_contact   String    @db.VarChar(100)
+  vendor_email     String    @db.VarChar(255)
+  vendor_state     String    @db.VarChar(255)
+  vendor_city      String    @db.VarChar(255)
+  vendor_address   String    @db.Text
+  vendor_pin       String    @db.VarChar(100)
+  vendor_remarks   String    @db.Text
+  vendor_status    String    @db.VarChar(100)
+  vendor_post_date String    @db.VarChar(100)
+  vendor_post_time String    @db.VarChar(100)
+  vendor_post_by   String    @db.VarChar(100)
+  address          String?   @db.Text
+  cosignNumber     String?   @default("") @db.VarChar(100)
+  createdAt        DateTime? @default(now())
+  email            String?   @default("") @db.VarChar(255)
+  phone            String?   @default("") @db.VarChar(100)
+  updatedAt        DateTime? @default(now())
+  username         String?   @default("") @db.VarChar(255)
+}
+
+model vendor_contract {
+  vc_id               Int       @id @default(autoincrement())
+  vc_code             String    @db.VarChar(255)
+  vc_vendor           String    @db.VarChar(255)
+  vc_date             DateTime  @db.Date
+  vc_days             Int
+  vc_mail_shoot_date  DateTime? @db.Date
+  vc_status           String    @db.VarChar(100)
+  vc_post_by          String    @db.VarChar(100)
+  vc_post_date        String    @db.VarChar(100)
+  vc_post_time        String    @db.VarChar(100)
+  vc_email            String    @db.VarChar(100)
+  vc_email_post_date  String?   @db.VarChar(100)
+  vc_email_post_time  String?   @db.VarChar(100)
+  vc_submit           String    @db.VarChar(100)
+  vc_submit_post_date String?   @db.VarChar(100)
+  vc_submit_post_time String?   @db.VarChar(100)
+  vc_submit_post_by   String?   @db.VarChar(100)
+}
+
+enum product_condition {
+  NEW
+  EXCELLENT
+  VERYGOOD
+  GOOD
+  FAIR
+}
+
+enum product_status {
+  PENDING
+  APPROVED
+  REJECTED
+  PUBLISHED
+  SOLD
+}
+
+model vendor_su {
+  id           Int                  @id @default(autoincrement())
+  username     String
+  email        String               @unique
+  phone        String               @unique
+  address      String
+  cosignNumber String               @unique
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  product      product_su[]
+  contracts    vendor_contract_su[]
+}
+
+model product_su {
+  id              Int               @id @default(autoincrement())
+  name            String
+  images          productImage_su[]
+  brand           String
+  type            String
+  description     String
+  sellingPrice    Float
+  ERPrice         Float
+  condition       condition_su
+  price           Float
+  vendorId        Int
+  vendor          vendor_su         @relation(fields: [vendorId], references: [id])
+  status          ProductStatus_su  @default(PENDING)
+  isApproved      Boolean?          @default(false)
+  approvedAt      DateTime?
+  approvedBy      String? // Admin username who approved
+  rejectedAt      DateTime?
+  rejectedBy      String? // Admin username who rejected
+  rejectionReason String? // Reason for rejection
+  adminNotes      String? // Admin notes/comments
+  mongoProductId  String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model productImage_su {
+  id        Int        @id @default(autoincrement())
+  url       String
+  productId Int
+  product   product_su @relation(fields: [productId], references: [id])
+}
+
+enum condition_su {
+  NEW
+  EXCELLENT
+  VERYGOOD
+  GOOD
+  FAIR
+}
+
+enum ProductStatus_su {
+  PENDING // Waiting for admin review
+  APPROVED // Approved by admin
+  REJECTED // Rejected by admin
+  PUBLISHED // Live on the website
+  SOLD // Product has been sold
+}
+
+model vendor_contract_su {
+  id             Int                @id @default(autoincrement())
+  contractCode   String             @unique
+  vendorId       Int
+  vendor         vendor_su          @relation(fields: [vendorId], references: [id])
+  contractDate   DateTime           @default(now())
+  contractDays   Int                @default(120) // Contract duration in days
+  status         ContractStatus_su  @default(PENDING)
+  emailSent      Boolean            @default(false)
+  emailSentAt    DateTime?
+  vendorResponse VendorResponse_su?
+  respondedAt    DateTime?
+  expiresAt      DateTime? // Auto-calculated based on contractDate + contractDays
+  createdBy      String // Admin who created contract
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  isActive       Boolean            @default(false) // Active only when accepted and not expired
+
+  // Track which products were included when contract was created
+  productSnapshots contract_product_snapshot[]
+
+  @@index([vendorId])
+  @@index([status])
+  @@index([isActive])
+}
+
+// Snapshot of products at the time contract was sent
+model contract_product_snapshot {
+  id           Int                @id @default(autoincrement())
+  contractId   Int
+  contract     vendor_contract_su @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  productId    Int
+  productName  String
+  brand        String
+  type         String
+  description  String
+  sellingPrice Float
+  ERPrice      Float
+  price        Float
+  condition    String
+  imageUrl     String? // Primary image
+  qty          Int                @default(1) // Quantity
+  remarks      String?            @db.Text // Remarks like "(MIGHT ASK FOR REDUCTION LATER)"
+  acceptStatus String             @default("PENDING") // PENDING, ACCEPTED, REJECTED
+  updatedAt    DateTime           @updatedAt // For tracking when status changes
+  createdAt    DateTime           @default(now())
+
+  @@index([contractId])
+  @@index([productId])
+}
+
+enum ContractStatus_su {
+  PENDING // Waiting for vendor response
+  ACCEPTED // Vendor accepted the contract
+  REJECTED // Vendor rejected the contract
+  EXPIRED // Contract expired without response
+}
+
+enum VendorResponse_su {
+  ACCEPTED
+  REJECTED
+}
